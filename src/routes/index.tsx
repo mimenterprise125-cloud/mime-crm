@@ -83,10 +83,11 @@ function HomePage() {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const heroScale = useTransform(scrollYProgress, [0, 1], [1, isMobile ? 1 : 1.18]);
-  const heroBlur = useTransform(scrollYProgress, [0, 1], ["blur(0px)", isMobile ? "blur(0px)" : "blur(8px)"]);
-  const heroOpacity = useTransform(scrollYProgress, [0, isMobile ? 1 : 0.8], [1, isMobile ? 1 : 0.2]);
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, isMobile ? 0 : -120]);
+  // Simplified parallax - disabled on mobile
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1]);
+  const heroBlur = useTransform(scrollYProgress, [0, 1], ["blur(0px)", "blur(0px)"]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
   const [showMyWorks, setShowMyWorks] = useState(false);
   const [myWorksPhone, setMyWorksPhone] = useState("");
@@ -227,20 +228,7 @@ function HomePage() {
           {/* Ambient cinematic gradients */}
           <div className="absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/30 to-ink" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,transparent_0%,oklch(0.13_0_0/0.55)_70%)]" />
-          {/* Animated light sweep - disabled on mobile */}
-          {!isMobile && (
-            <motion.div
-              className="absolute -inset-x-1/4 top-1/4 h-1/2 opacity-40"
-              initial={{ x: "-30%" }}
-              animate={{ x: "30%" }}
-              transition={{ duration: 12, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}
-              style={{
-                background:
-                  "radial-gradient(ellipse at center, oklch(0.85 0.10 80 / 0.45), transparent 60%)",
-                filter: "blur(40px)",
-              }}
-            />
-          )}
+          {/* Light sweep animation removed - was causing performance issues */}
         </motion.div>
 
         <Particles count={isMobile ? 0 : 32} />
