@@ -4,11 +4,6 @@
   "installCommand": "npm install",
   "framework": "vite",
   "outputDirectory": "dist",
-  "env": {
-    "NODE_ENV": {
-      "default": "production"
-    }
-  },
   "routes": [
     {
       "src": "/assets/(?<path>.*)",
