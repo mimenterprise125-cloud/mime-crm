@@ -224,15 +224,15 @@ function ContactPage() {
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card className="bg-ink-dark border-gold/20 p-6 text-center">
               <h3 className="text-gold font-semibold mb-2">📞 Call Us</h3>
-              <p className="text-white/70 text-sm">+91 XXXXX XXXXX</p>
+              <p className="text-white/70 text-sm">+91 9957640581</p>
             </Card>
             <Card className="bg-ink-dark border-gold/20 p-6 text-center">
               <h3 className="text-gold font-semibold mb-2">📧 Email</h3>
-              <p className="text-white/70 text-sm">info@mimwindows.com</p>
+              <p className="text-white/70 text-sm">mimenterprises123@gmail.com</p>
             </Card>
             <Card className="bg-ink-dark border-gold/20 p-6 text-center">
               <h3 className="text-gold font-semibold mb-2">📍 Visit Us</h3>
-              <p className="text-white/70 text-sm">Your Office Address</p>
+              <p className="text-white/70 text-sm">A T ROAD, Opposite Avanti Vihar, Nashik</p>
             </Card>
           </div>
         </div>
